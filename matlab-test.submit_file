@@ -45,6 +45,8 @@ request_GPUs     = 1
 request_CPUs     = 1
 request_memory   = 1G
 
++CanCheckpoint = true
+
 # -----------------------------------
 # Queue commands
 queue 1
