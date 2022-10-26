@@ -39,6 +39,7 @@ request_CPUs     = 1
 request_memory = 4096
 
 +CanCheckpoint = false
++JobRunTime = 1
 +GPUMem = 1024
 
 # -----------------------------------
