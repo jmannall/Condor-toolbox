@@ -6,8 +6,8 @@
 # --------------------------------------------
 # Executable and its arguments
 
-executable = myscript.m
-# arguments  = $ENV(PWD)/mnist_pytorch.py
+executable = my-matlab-job.sh
+arguments  = 
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
