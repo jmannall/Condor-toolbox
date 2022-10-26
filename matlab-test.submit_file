@@ -22,7 +22,7 @@ error  = c$(cluster).p$(process).error
 # -----------------------------------
 # File Transfer, Input, Output
 should_transfer_files = YES
-transfer_input_files= task.m
+transfer_input_files= myscript.m
 when_to_transfer_output = ON_EXIT
 
 # -------------------------------------
@@ -37,6 +37,9 @@ requirements = (HasStornext) && \
 request_GPUs     = 1
 request_CPUs     = 1
 request_memory = 4096
+
++CanCheckpoint = false
++GPUMem = 1024
 
 # -----------------------------------
 # Queue commands
