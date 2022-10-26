@@ -46,6 +46,7 @@ request_CPUs     = 1
 request_memory   = 1G
 
 +CanCheckpoint = true
++JobRunTime = 1
 
 # -----------------------------------
 # Queue commands
