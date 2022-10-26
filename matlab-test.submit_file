@@ -32,12 +32,7 @@ should_transfer_files = YES
 # Request a GPU with more that 4.5GB and less that 17GB or RAM (important to avoid special machines like "nain")
 # Avoid old machines that can't run CUDA 9, 10, etc.
 # Avoid machines owned by a specific project where you don't have priority (avoid getting evicted)
-requirements = (HasDocker) && \
-#               (HasStornext) && \
-#               (TARGET.CondorPlatform == "$CondorPlatform: X86_64-Ubuntu_18.04 $") && \
-#               (CUDAGlobalMemoryMb > 4500) && (CUDAGlobalMemoryMb <  17000) && \
-#               (CUDACapability > 2.0)
-#               (NotProjectOwned)
+requirements = (HasDocker)
 
 # If you want to avoid ProjectOwned machine other that projects that you're part of, you can change the last line to:
 # ((NotProjectOwned) || (machine == "mymachine1.eps.surrey.ac.uk") || (machine == "mymachine2.eps.surrey.ac.uk"))
