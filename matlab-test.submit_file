@@ -37,7 +37,7 @@ requirements = (HasDocker) && \
 #               (TARGET.CondorPlatform == "$CondorPlatform: X86_64-Ubuntu_18.04 $") && \
 #               (CUDAGlobalMemoryMb > 4500) && (CUDAGlobalMemoryMb <  17000) && \
 #               (CUDACapability > 2.0)
-               (NotProjectOwned)
+#               (NotProjectOwned)
 
 # If you want to avoid ProjectOwned machine other that projects that you're part of, you can change the last line to:
 # ((NotProjectOwned) || (machine == "mymachine1.eps.surrey.ac.uk") || (machine == "mymachine2.eps.surrey.ac.uk"))
