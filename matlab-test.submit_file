@@ -1,0 +1,55 @@
+####################
+#
+# Example Job for HTCondor
+#
+####################
+# --------------------------------------------
+# Executable and its arguments
+
+executable = myscript.m
+# arguments  = $ENV(PWD)/mnist_pytorch.py
+
+# ---------------------------------------------------
+# Universe (vanilla, docker)
+universe         = docker
+docker_image     = mathworks/matlab
+
+# -------------------------------------------------
+# Event, out and error logs
+log    = c$(cluster).p$(process).log
+output = c$(cluster).p$(process).out
+error  = c$(cluster).p$(process).error
+
+# -----------------------------------
+# File Transfer, Input, Output
+should_transfer_files = YES
+
+# -------------------------------------
+# Requirements for the Job
+# Use Docker (can be ommited)
+# Use Storenext for faster file transfer
+# Ubuntu 16.04 (guess how you would request 18.04)
+# Request a GPU with more that 4.5GB and less that 17GB or RAM (important to avoid special machines like "nain")
+# Avoid old machines that can't run CUDA 9, 10, etc.
+# Avoid machines owned by a specific project where you don't have priority (avoid getting evicted)
+requirements = (HasDocker) && \
+#               (HasStornext) && \
+#               (TARGET.CondorPlatform == "$CondorPlatform: X86_64-Ubuntu_18.04 $") && \
+#               (CUDAGlobalMemoryMb > 4500) && (CUDAGlobalMemoryMb <  17000) && \
+#               (CUDACapability > 2.0)
+               (NotProjectOwned)
+
+# If you want to avoid ProjectOwned machine other that projects that you're part of, you can change the last line to:
+# ((NotProjectOwned) || (machine == "mymachine1.eps.surrey.ac.uk") || (machine == "mymachine2.eps.surrey.ac.uk"))
+
+environment = "mount=$ENV(PWD)"
+
+# --------------------------------------
+# Resources
+request_GPUs     = 1
+request_CPUs     = 1
+request_memory   = 1G
+
+# -----------------------------------
+# Queue commands
+queue 1
