@@ -28,10 +28,7 @@ when_to_transfer_output = ON_EXIT
 
 # -------------------------------------
 # Requirements for the Job (Requirements are explained in further detail in example09.submit_file)
-requirements = (HasStornext) && \
-               (TARGET.CondorPlatform == "$CondorPlatform: X86_64-Ubuntu_16.04 $") && \
-               (CUDAGlobalMemoryMb > 4500) && (CUDAGlobalMemoryMb <  17000) && \
-               (CUDACapability > 2.0)
+requirements = 
 
 # --------------------------------------
 # Resources
