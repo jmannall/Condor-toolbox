@@ -10,7 +10,8 @@ arguments     =
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
-universe         = vanilla
+universe         = docker
+docker_image     = mathworks/matlab
 
 # -------------------------------------------------
 # Event, out and error logs
