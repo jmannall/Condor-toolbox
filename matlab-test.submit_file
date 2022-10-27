@@ -32,13 +32,13 @@ requirements =
 
 # --------------------------------------
 # Resources
-request_GPUs     = 1
+# request_GPUs     = 1
 request_CPUs     = 1
 request_memory = 4096
 
 +CanCheckpoint = true
 +JobRunTime = 1
-+GPUMem = 256
+# +GPUMem = 256
 
 # -----------------------------------
 # Queue commands
