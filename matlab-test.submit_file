@@ -1,6 +1,6 @@
 ####################
 #
-# Example Job for HTCondor - Test
+# Example Job for HTCondor
 #
 ####################
 
@@ -38,9 +38,9 @@ request_GPUs     = 1
 request_CPUs     = 1
 request_memory = 4096
 
-+CanCheckpoint = false
++CanCheckpoint = true
 +JobRunTime = 1
-+GPUMem = 1024
++GPUMem = 256
 
 # -----------------------------------
 # Queue commands
