@@ -4,10 +4,15 @@
 #
 ####################
 
+
+#---------------------------------------------
+# Name your batch so it's easy to distinguish in the q.
+JobBatchName = "JM_Matlab-Test"
+
 # --------------------------------------------
 # Executable and its arguments
 executable    = my-matlab-job.sh
-arguments     =
+arguments     = 
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
@@ -22,25 +27,21 @@ error  = c$(cluster).p$(process).error
 # -----------------------------------
 # File Transfer, Input, Output
 should_transfer_files = YES
-transfer_input_files= myscript.m
-when_to_transfer_output = ON_EXIT
+transfer_input_files= task.m
+when_to_transfer_output = ON_EXIT_OR_EVICT
 
-# -------------------------------------
-# Requirements for the Job (Requirements are explained in further detail in example09.submit_file)
-requirements = (HasStornext) && \
-               (TARGET.CondorPlatform == "$CondorPlatform: X86_64-Ubuntu_16.04 $") && \
-               (CUDAGlobalMemoryMb > 4500) && (CUDAGlobalMemoryMb <  17000) && \
-               (CUDACapability > 2.0)
-
+environment = "mount=$ENV(PWD)"
+        
 # --------------------------------------
 # Resources
-request_GPUs     = 1
 request_CPUs     = 1
 request_memory = 4096
 
-+CanCheckpoint = true
+#This job will complete in less than 1 hour
 +JobRunTime = 1
-+GPUMem = 256
+
+#This job can checkpoint
++CanCheckpoint = false
 
 # -----------------------------------
 # Queue commands
