@@ -6,13 +6,13 @@
 
 # --------------------------------------------
 # Executable and its arguments
-executable    = my-matlab-job.sh
+executable    =
 arguments     =
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
 universe         = docker
-docker_image     = mathworks/matlab
+docker_image     = jmannall/matlab-test-container:matlab-test
 
 # -------------------------------------------------
 # Event, out and error logs
