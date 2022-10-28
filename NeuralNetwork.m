@@ -31,5 +31,5 @@ result = bayesopt(func, [learnRate, gradDecay, sqGradDecay, maxGradient], 'UsePa
 xObs = result.XAtMinObjective;
 xEst = result.XAtMinEstimatedObjective;
 
-[lossObs, netObs] = XORNeuralNetwork(xObs);
-[lossEst, netEst] = XORNeuralNetwork(xEst);
+[lossObs, netObs] = XORNeuralNetwork(xObs)
+[lossEst, netEst] = XORNeuralNetwork(xEst)
