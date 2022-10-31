@@ -27,13 +27,21 @@ function NeuralNetwork()
     sqGradDecay = optimizableVariable('sGD',[0.8 1],'Type','real');
     maxGradient = optimizableVariable('mG',[0.5 10],'Type','real','Transform','log');
     
+    disp('Check 1')
+    memory
+
     func = @(x)XORNeuralNetwork(x);
     result = bayesopt(func, [learnRate, gradDecay, sqGradDecay, maxGradient], 'UseParallel', true);
     
     xObs = result.XAtMinObjective;
     xEst = result.XAtMinEstimatedObjective;
-    
+
+    disp('Check 2')
+    memory
+
     [lossObs, netObs] = XORNeuralNetwork(xObs)
     [lossEst, netEst] = XORNeuralNetwork(xEst)
 
+    disp('Check 3')
+    memory
 end
