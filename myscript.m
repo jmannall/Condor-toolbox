@@ -1,6 +1,7 @@
 
 addpath('/mnt/fast/nobackup/users/jm01527/scripts')
 
-NeuralNetwork()
+HelloWorld()
+%NeuralNetwork()
 disp('Check 4')
 memory
