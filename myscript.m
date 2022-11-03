@@ -2,5 +2,6 @@
 addpath('/mnt/fast/nobackup/users/jm01527/scripts')
 
 HelloWorld()
-NeuralNetwork()
+func = @(x)XORNeuralNetwork(x);
+NeuralNetwork(func)
 disp('Check 4')
