@@ -4,7 +4,10 @@ clc;
 clear;
 close all;
 
-addpath(genpath('/mnt/fast/nobackup/users/jm01527/Diffraction-toolbox'))
+basePath = '/mnt/fast/nobackup/users/jm01527/';
+addpath(genpath([basePath, 'Diffraction-toolbox']))
+addpath(genpath([basePath, 'Edge-diffraction-Matlab-toolbox']))
+addpath(genpath([basePath, 'misc-files']))
 
 % Create controlparamters struct
 fs = 96e3;
