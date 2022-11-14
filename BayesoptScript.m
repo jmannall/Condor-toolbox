@@ -4,7 +4,7 @@ clc;
 clear;
 close all;
 
-ver
+which -all makedist
 
 basePath = '/mnt/fast/nobackup/users/jm01527/';
 addpath(genpath([basePath, 'Diffraction-toolbox']))
