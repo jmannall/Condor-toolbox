@@ -4,9 +4,6 @@ clc;
 clear;
 close all;
 
-which -all makedist
-x = makedist
-
 basePath = '/mnt/fast/nobackup/users/jm01527/';
 addpath(genpath([basePath, 'Diffraction-toolbox']))
 addpath(genpath([basePath, 'Edge-diffraction-Matlab-toolbox']))
