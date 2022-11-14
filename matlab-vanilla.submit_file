@@ -11,7 +11,7 @@ JobBatchName = "JM_BayesoptScript"
 
 # --------------------------------------------
 # Executable and its arguments
-executable    = my-matlab-job.sh
+executable    = matlab-job.sh
 arguments     = 
 
 # ---------------------------------------------------
