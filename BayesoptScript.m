@@ -5,6 +5,7 @@ clear;
 close all;
 
 which -all makedist
+x = makedist('Loguniform', 'Lower', 1, 'Upper', 4)
 
 basePath = '/mnt/fast/nobackup/users/jm01527/';
 addpath(genpath([basePath, 'Diffraction-toolbox']))
