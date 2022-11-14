@@ -7,7 +7,7 @@
 
 #---------------------------------------------
 # Name your batch so it's easy to distinguish in the q.
-JobBatchName = "JM_Matlab-Test"
+JobBatchName = "JM_BayesoptScript"
 
 # --------------------------------------------
 # Executable and its arguments
@@ -27,7 +27,7 @@ error  = c$(cluster).p$(process).error
 # -----------------------------------
 # File Transfer, Input, Output
 should_transfer_files = YES
-transfer_input_files= myscript.m
+transfer_input_files= BayesoptScript.m
 when_to_transfer_output = ON_EXIT_OR_EVICT
 
 environment = "mount=$ENV(PWD)"
@@ -40,10 +40,10 @@ request_CPUs     = 2
 request_memory = 32G
 
 #This job will complete in less than 1 hour
-+JobRunTime = 1
++JobRunTime = 12
 
 #This job can checkpoint
-+CanCheckpoint = false
++CanCheckpoint = true
 
 # -----------------------------------
 # Queue commands

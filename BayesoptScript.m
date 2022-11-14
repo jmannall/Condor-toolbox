@@ -1,5 +1,11 @@
 %% BayesoptScript
 
+clc;
+clear;
+close all;
+
+addpath('/mnt/fast/nobackup/users/jm01527/Diffraction-toolbox')
+
 % Create controlparamters struct
 fs = 96e3;
 nfft = 4096;
