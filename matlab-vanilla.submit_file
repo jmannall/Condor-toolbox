@@ -37,7 +37,7 @@ environment = "mount=$ENV(PWD)"
 request_GPUs     = 1
 +GPUMem          = 10000
 request_CPUs     = 2
-request_memory = 32G
+request_memory = 64G
 
 #This job will complete in less than 1 hour
 +JobRunTime = 12
