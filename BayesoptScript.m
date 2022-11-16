@@ -16,18 +16,29 @@ c = 344;
 controlparameters = struct('fs', fs, 'nfft', nfft, 'difforder', 1, 'c', c, 'saveFiles', 2);
 
 % Create loss function
-numBiquads = 2;
+numFilters = 2;
 nBands = 12;
 [~, tfmag, ~, fvec, ~] = DefaultBTM(controlparameters);
 [~, ~, fidx] = CreateFrequencyNBands(tfmag, fvec, nBands);
-lossFunc = @(net, trainingData, targetData) NNBiquadLoss(net, trainingData, targetData, numBiquads, nfft, fs, fidx, true);
+biquad = false;
+if biquad
+    filterFunc = @(output, target) BiquadLoss(output, target, numFilters, nfft, fs, fidx);
+    numOutputs = 4 * numFilters + 1;
+    controlparameters.filterType = 'Biquad';
+else
+    filterFunc = @(output, target) IIRFilterLoss(output, target, numFilters, nfft, fs, fidx);
+    numOutputs = 2 * numFilters + 1;
+    controlparameters.filterType = 'IIR';
+end
+lossFunc = @(net, trainingData, targetData) NNFilterLoss(net, trainingData, targetData, filterFunc, true);
 
 % Define network parameters
-numOutputs = 4 * numBiquads + 1;
 networkSize = 700;
 
 % Optimise hyperparameters
 BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
+
+%% Run 2
 
 networkSize = 350;
 BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
