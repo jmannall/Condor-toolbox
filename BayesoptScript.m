@@ -38,7 +38,5 @@ networkSize = 700;
 % Optimise hyperparameters
 BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
 
-%% Run 2
-
 networkSize = 350;
 BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
