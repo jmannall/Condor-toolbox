@@ -63,11 +63,11 @@ end
 lossFunc = @(net, trainingData, targetData) NNFilterLoss(net, trainingData, targetData, filterFunc, true);
 
 % Define network parameters
-epochSize = 1e3;
-networkSize = 20e3;
-numEpochs = 50;
-idx = 2;
-dataFunc = @() CreateBtmTrainingData(epochSize, controlparameters, idx);
+% epochSize = 1e3;
+% networkSize = 20e3;
+% numEpochs = 50;
+% idx = 2;
+% dataFunc = @() CreateBtmTrainingData(epochSize, controlparameters, idx);
 % numNetworks = 8;
 % const = ones(numNetworks, 1);
 % lR = [1e-3; 1e-3; 1e-3; 1e-3; 1e-4; 1e-4; 1e-4; 1e-3];
@@ -101,6 +101,9 @@ dataFunc = @() CreateBtmTrainingData(epochSize, controlparameters, idx);
 
 % Optimise hyperparameters
 networkSize = 700;
+BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
+
+networkSize = 10e3;
 BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
 
 networkSize = 350;
