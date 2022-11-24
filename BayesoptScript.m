@@ -14,15 +14,15 @@ close all;
 % radiusR = 3;
 
 % Create controlparamters struct
-fs = 96e3;
-nfft = 8192;
-c = 344;
-controlparameters = struct('fs', fs, 'nfft', nfft, 'difforder', 1, 'c', c, 'saveFiles', 2);
+% fs = 96e3;
+% nfft = 8192;
+% c = 344;
+% controlparameters = struct('fs', fs, 'nfft', nfft, 'difforder', 1, 'c', c, 'saveFiles', 2);
 % createPlot = false;
 
-[ir] = DefaultBTM(controlparameters);
-disp('Default BTM success')
-return
+% [ir] = DefaultBTM(controlparameters);
+% disp('Default BTM success')
+
 % [~, tfmag, ~, fvec, tfcomplex] = SingleWedge(wedgeLength, wedgeIndex, thetaS, thetaR, radiusS, radiusR, zS, zR, controlparameters, createPlot);
 
 % thetaS = 30;
