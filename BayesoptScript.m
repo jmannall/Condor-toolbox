@@ -5,20 +5,30 @@ clear;
 close all;
 
 % thetaS = 10;
-% thetaR = 200;
+% thetaR = 290;
 % wedgeIndex = 320;
 % wedgeLength = 20;
-% zS = 10;
-% zR = 10;
+% zS = 9;
+% zR = 14;
 % radiusS = 1;
-% radiusR = 1;
-% 
-% % Create controlparamters struct
-% fs = 96e3;
-% nfft = 8192;
-% c = 344;
-% controlparameters = struct('fs', fs, 'nfft', nfft, 'difforder', 1, 'c', c, 'saveFiles', 2);
+% radiusR = 3;
+
+% Create controlparamters struct
+fs = 96e3;
+nfft = 8192;
+c = 344;
+controlparameters = struct('fs', fs, 'nfft', nfft, 'difforder', 1, 'c', c, 'saveFiles', 2);
 % createPlot = false;
+
+[ir] = DefaultBTM(controlparameters);
+disp('Default BTM success')
+return
+% [~, tfmag, ~, fvec, tfcomplex] = SingleWedge(wedgeLength, wedgeIndex, thetaS, thetaR, radiusS, radiusR, zS, zR, controlparameters, createPlot);
+
+% thetaS = 30;
+% thetaR = 310;
+% [~, tfmag2, ~, fvec, tfcomplex] = SingleWedge(wedgeLength, wedgeIndex, thetaS, thetaR, radiusS, radiusR, zS, zR, controlparameters, createPlot);
+
 % L = sqrt((radiusS + radiusR) ^ 2 + (zR - zS) ^ 2);
 % [~, tfmag3, ~, fvec, tfcomplex] = SingleWedge(wedgeLength, wedgeIndex, thetaS, thetaR, radiusS, radiusR, zS, zR, controlparameters, createPlot);
 % 
@@ -28,11 +38,9 @@ close all;
 % [tfmag2, fvec, tfcomplex] = SingleWedgeInterpolated(wedgeLength, wedgeIndex, thetaS, thetaR, radiusS, radiusR, zS, zR, controlparameters, createPlot);
 % 
 % figure
-% semilogx(fvec, tfmag)
+% semilogx(fvec, [tfmag.diff1])
 % hold on
-% semilogx(fvec, tfmag2, '--')
-% semilogx(fvec, tfmag3)
-
+% semilogx(fvec, [tfmag2.diff1], '--')
 
 %basePath = '/mnt/fast/nobackup/users/jm01527/';
 %addpath(genpath([basePath, 'Diffraction-toolbox']))
