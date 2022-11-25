@@ -28,9 +28,9 @@ controlparameters.filterType = 'Biquad';
 lossFunc = @(net, trainingData, targetData) NNFilterLoss(net, trainingData, targetData, filterFunc, true);
 
 % Optimise hyperparameters
-disp('Biquad - 700')
-networkSize = 700;
-BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
+% disp('Biquad - 700')
+% networkSize = 700;
+% BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
 
 disp('Biquad - 350')
 networkSize = 350;
