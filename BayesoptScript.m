@@ -20,22 +20,6 @@ nBands = 12;
 [~, tfmag, ~, fvec, ~] = DefaultBTM(controlparameters);
 [~, ~, fidx] = CreateFrequencyNBands(tfmag, fvec, nBands);
 
-%% Biquads
-filterFunc = @(output, target) BiquadLoss(output, target, numFilters, nfft, fs, fidx);
-numOutputs = 4 * numFilters + 1;
-controlparameters.filterType = 'Biquad';
-
-lossFunc = @(net, trainingData, targetData) NNFilterLoss(net, trainingData, targetData, filterFunc, true);
-
-% Optimise hyperparameters
-% disp('Biquad - 700')
-% networkSize = 700;
-% BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
-
-disp('Biquad - 350')
-networkSize = 350;
-BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
-
 %% IIR filters
 filterFunc = @(output, target) IIRFilterLoss(output, target, numFilters, nfft, fs, fidx);
 numOutputs = 2 * numFilters + 1;
@@ -44,10 +28,26 @@ controlparameters.filterType = 'IIR';
 lossFunc = @(net, trainingData, targetData) NNFilterLoss(net, trainingData, targetData, filterFunc, true);
 
 % Optimise hyperparameters
-disp('IIR - 700')
-networkSize = 700;
-BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
+% disp('IIR - 700')
+% networkSize = 700;
+% BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
 
 disp('IIR - 350')
 networkSize = 350;
 BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
+
+%% Biquads
+filterFunc = @(output, target) BiquadLoss(output, target, numFilters, nfft, fs, fidx);
+numOutputs = 4 * numFilters + 1;
+controlparameters.filterType = 'Biquad';
+
+lossFunc = @(net, trainingData, targetData) NNFilterLoss(net, trainingData, targetData, filterFunc, true);
+
+% Optimise hyperparameters
+disp('Biquad - 700')
+networkSize = 700;
+BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
+
+% disp('Biquad - 350')
+% networkSize = 350;
+% BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
