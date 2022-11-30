@@ -27,7 +27,7 @@ error  = c$(cluster).p$(process).error
 # -----------------------------------
 # File Transfer, Input, Output
 should_transfer_files = YES
-transfer_input_files= BayesoptScript.m
+# transfer_input_files = 
 when_to_transfer_output = ON_EXIT_OR_EVICT
 
 environment = "mount=$ENV(PWD)"
