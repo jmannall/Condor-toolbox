@@ -7,7 +7,7 @@
 
 #---------------------------------------------
 # Name your batch so it's easy to distinguish in the q.
-JobBatchName = "JM_BayesoptScript"
+JobBatchName = "JM_BTMScript"
 
 # --------------------------------------------
 # Executable and its arguments
@@ -37,7 +37,7 @@ environment = "mount=$ENV(PWD)"
 request_GPUs     = 1
 +GPUMem          = 10000
 request_CPUs     = 2
-request_memory = 64G
+request_memory = 32G
 
 #This job will complete in less than 1 hour
 +JobRunTime = 24
