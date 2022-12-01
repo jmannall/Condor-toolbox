@@ -9,7 +9,7 @@ function CondorScript(idx)
     c = 344;
     controlparameters = struct('fs', fs, 'nfft', nfft, 'difforder', 1, 'c', c, 'saveFiles', 1);
 
-    tf = SingleWedgeInterpolated(20, 270, 10, 260, 1, 2, 2, 11, controlparameters, false);
+    tf = SingleWedgeInterpolated(20, 350, 10, 260, 1, 2, 2, 11, controlparameters, false);
 
 %     poolobj = gcp
 %     if isempty(poolobj)
