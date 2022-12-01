@@ -7,7 +7,7 @@
 
 #---------------------------------------------
 # Name your batch so it's easy to distinguish in the q.
-JobBatchName = "JM_BTMScript"
+JobBatchName = "JM_NNDataGen"
 
 # --------------------------------------------
 # Executable and its arguments
@@ -20,9 +20,9 @@ universe         = vanilla
 
 # -------------------------------------------------
 # Event, out and error logs
-log    = BtmTestLogs/log.p$(process)
-output = BtmTestLogs/out.p$(process)
-error  = BtmTestLogs/error.p$(process)
+log    = NNDataGenLogs/log.p$(process)
+output = NNDataGenLogs/out.p$(process)
+error  = NNDataGenLogs/error.p$(process)
 
 # -----------------------------------
 # File Transfer, Input, Output
@@ -35,17 +35,17 @@ environment = "mount=$ENV(PWD)"
         
 # --------------------------------------
 # Resources
-#request_GPUs     = 1
-#+GPUMem          = 4000
+request_GPUs     = 1
++GPUMem          = 4000
 request_CPUs     = 2
 request_memory = 16G
 
 #This job will complete in less than 1 hour
-+JobRunTime = 1
++JobRunTime = 8
 
 #This job can checkpoint
 +CanCheckpoint = true
 
 # -----------------------------------
 # Queue commands
-queue 1
+queue 50
