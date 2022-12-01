@@ -37,14 +37,14 @@ environment = "mount=$ENV(PWD)"
 request_GPUs     = 1
 +GPUMem          = 4000
 request_CPUs     = 2
-request_memory = 4G
+request_memory = 32G
 
 #This job will complete in less than 1 hour
-+JobRunTime = 1
++JobRunTime = 8
 
 #This job can checkpoint
 +CanCheckpoint = true
 
 # -----------------------------------
 # Queue commands
-queue 2
+queue 50

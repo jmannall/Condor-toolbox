@@ -1,5 +1,10 @@
 
 function CondorScript(idx)
+
+    poolobj = gcp
+    if isempty(poolobj)
+        parpool([1 48]);
+    end
     epochSize = 20e3;
     
     fs = 96e3;
@@ -8,8 +13,15 @@ function CondorScript(idx)
     controlparameters = struct('fs', fs, 'nfft', nfft, 'difforder', 1, 'c', c, 'saveFiles', 2);
     
     % gpuDevice(1)
-    seed = 1 + round(1e9 * rand(1))
+    seed = 1e3 * idx;
     rng(seed)
-
-    [trainingData, targetData] = CreateBtmTrainingData(epochSize, controlparameters, idx + 1);
+    
+    seed = round(2 ^ 32 * rand(1)) - 1
+    rng(seed)
+    
+    numDataSets = 10;
+    for i = 1:numDataSets
+        idx = numDataSets * idx + i;
+        [trainingData, targetData] = CreateBtmTrainingData(epochSize, controlparameters, numDataSets * idx + i);
+    end
 end
