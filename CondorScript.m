@@ -5,10 +5,10 @@ function CondorScript(idx)
     disp('Hello World')
 
     mkdir('results')
-    mkdir('results', filesep, 'CreateBtmTrainingData')
-    mkdir('results', filesep, 'SingleWedge')
-    mkdir('results', filesep, 'DefaultBTM')
-    
+    mkdir(['results', filesep, 'CreateBtmTrainingData'])
+    mkdir(['results', filesep, 'SingleWedge'])
+    mkdir(['results', filesep, 'DefaultBTM'])
+
     poolobj = gcp
     if isempty(poolobj)
         parpool([1 48]);
