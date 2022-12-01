@@ -28,6 +28,7 @@ error  = BtmTest.p$(process).error
 # File Transfer, Input, Output
 should_transfer_files = YES
 transfer_input_files = CondorScript.m
+transfer_output_files = results
 when_to_transfer_output = ON_EXIT_OR_EVICT
 
 environment = "mount=$ENV(PWD)"
