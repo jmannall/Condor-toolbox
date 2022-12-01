@@ -20,9 +20,9 @@ universe         = vanilla
 
 # -------------------------------------------------
 # Event, out and error logs
-log    = GenBtmData.p$(process).log
-output = GenBtmData.p$(process).out
-error  = GenBtmData.p$(process).error
+log    = BtmTest.p$(process).log
+output = BtmTest.p$(process).out
+error  = BtmTest.p$(process).error
 
 # -----------------------------------
 # File Transfer, Input, Output
