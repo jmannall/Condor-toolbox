@@ -30,7 +30,6 @@ function CondorScript(idx)
     
     numDataSets = 10;
     for i = 1:numDataSets
-        idx = numDataSets * idx + i;
         [trainingData, targetData] = CreateBtmTrainingData(epochSize, controlparameters, numDataSets * idx + i);
     end
 end
