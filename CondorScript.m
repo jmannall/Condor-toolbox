@@ -9,8 +9,6 @@ function CondorScript(idx)
     mkdir(['results', filesep, 'SingleWedge'])
     mkdir(['results', filesep, 'DefaultBTM'])
 
-    missing = [300 330 350 410 450];
-    toRun = missing(idx + 1);
     poolobj = gcp
     if isempty(poolobj)
         parpool([1 48]);
@@ -24,7 +22,7 @@ function CondorScript(idx)
     controlparameters = struct('fs', fs, 'nfft', nfft, 'difforder', 1, 'c', c, 'saveFiles', 2);
     
     % gpuDevice(1)
-    seed = 1e4 + 1e3 * idx;
+    seed = idx;
     rng(seed)
     
     seed = round(2 ^ 32 * rand(1)) - 1
@@ -33,6 +31,6 @@ function CondorScript(idx)
     numDataSets = 10;
     
     for i = 1:numDataSets
-        [trainingData, targetData] = CreateBtmTrainingData(epochSize, controlparameters, toRun + i);
+        [trainingData, targetData] = CreateBtmTrainingData(epochSize, controlparameters, idx * numDataSets + i);
     end
 end
