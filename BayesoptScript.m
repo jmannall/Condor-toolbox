@@ -32,8 +32,8 @@ lossFunc = @(net, trainingData, targetData) NNFilterLoss(net, trainingData, targ
 % networkSize = 700;
 % BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
 
-disp('IIR - 350')
-networkSize = 350;
+disp('IIR - 100,000')
+networkSize = 100000;
 BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
 
 %% Biquads
@@ -44,10 +44,22 @@ controlparameters.filterType = 'Biquad';
 lossFunc = @(net, trainingData, targetData) NNFilterLoss(net, trainingData, targetData, filterFunc, true);
 
 % Optimise hyperparameters
-disp('Biquad - 700')
-networkSize = 700;
+disp('Biquad - 100,000')
+networkSize = 100000;
 BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
 
 % disp('Biquad - 350')
 % networkSize = 350;
 % BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
+
+%% IIR filters parameters
+
+filterFunc = @(output, target) ParameterIIRFilterLoss(output, target, nfft, fs, fidx);
+numOutputs = 4;
+controlparameters.filterType = 'IIR_Param';
+
+lossFunc = @(net, trainingData, targetData) NNFilterLoss(net, trainingData, targetData, filterFunc, true);
+
+disp('IIR Parameters - 100,000')
+networkSize = 100000;
+BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
