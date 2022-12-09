@@ -20,6 +20,18 @@ nBands = 12;
 [~, tfmag, ~, fvec, ~] = DefaultBTM(controlparameters);
 [~, ~, fidx] = CreateFrequencyNBands(tfmag, fvec, nBands);
 
+%% IIR filters parameters
+
+filterFunc = @(output, target) ParameterIIRFilterLoss(output, target, nfft, fs, fidx);
+numOutputs = 4;
+controlparameters.filterType = 'IIR_Param';
+
+lossFunc = @(net, trainingData, targetData) NNFilterLoss(net, trainingData, targetData, filterFunc, true);
+
+disp('IIR Parameters - 100,000')
+networkSize = 100000;
+BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
+
 %% IIR filters
 filterFunc = @(output, target) IIRFilterLoss(output, target, numFilters, nfft, fs, fidx);
 numOutputs = 2 * numFilters + 1;
@@ -51,15 +63,3 @@ BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
 % disp('Biquad - 350')
 % networkSize = 350;
 % BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
-
-%% IIR filters parameters
-
-filterFunc = @(output, target) ParameterIIRFilterLoss(output, target, nfft, fs, fidx);
-numOutputs = 4;
-controlparameters.filterType = 'IIR_Param';
-
-lossFunc = @(net, trainingData, targetData) NNFilterLoss(net, trainingData, targetData, filterFunc, true);
-
-disp('IIR Parameters - 100,000')
-networkSize = 100000;
-BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters)
