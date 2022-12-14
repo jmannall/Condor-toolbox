@@ -32,6 +32,7 @@ function CondorScript(idx)
     
     weight = 20;
     for i = 1:numDataSets
-        [trainingData, targetData] = CreateBtmTrainingDataWeighted(epochSize, controlparameters, weight, idx * numDataSets + i);
+        [trainingData, targetData] = CreateBtmTrainingData(epochSize, controlparameters, epochSize);
+        [trainingData, targetData] = CreateBtmTrainingDataWeighted(epochSize, controlparameters, weight, epochSize);
     end
 end
