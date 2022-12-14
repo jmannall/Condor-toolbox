@@ -30,7 +30,7 @@ lossFunc = @(net, trainingData, targetData) NNFilterLoss(net, trainingData, targ
 
 disp('IIR Parameters - 100,000')
 networkSize = 100000;
-BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters, false)
+% BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters, false)
 disp('IIR Parameters - 100,000, weighted')
 BayesoptNeuralNetwork(lossFunc, networkSize, numOutputs, controlparameters, true)
 
