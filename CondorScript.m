@@ -1,5 +1,5 @@
 
-function CondorScript(idx)
+function CondorScript(idx, fs, weighted)
 
     disp(idx)
     disp('Hello World')
@@ -16,7 +16,6 @@ function CondorScript(idx)
 
     epochSize = 20e3;
     
-    fs = 96e3;
     nfft = 16384;
     c = 344;
     controlparameters = struct('fs', fs, 'nfft', nfft, 'difforder', 1, 'c', c, 'saveFiles', 2);
@@ -28,20 +27,17 @@ function CondorScript(idx)
     seed = round(2 ^ 32 * rand(1)) - 1
     rng(seed)
     
-    numDataSets = 5;
+    numDataSets = 10;
     
-    weight = 20;
-    for i = 1:numDataSets
-        saveIdx = idx * numDataSets + i;
-        [~, ~] = CreateBtmTrainingData(epochSize, controlparameters, saveIdx);
-        [~, ~] = CreateBtmTrainingDataWeighted(epochSize, controlparameters, weight, saveIdx);
+    if weighted
+        weight = 20;
+        dataFunc = @(saveIdx)CreateBtmTrainingDataWeighted(epochSize, controlparameters, weight, saveIdx);
+    else
+        dataFunc = @(saveIdx)CreateBtmTrainingData(epochSize, controlparameters, saveIdx);
     end
 
-    fs = 88.2e3;
-    controlparameters = struct('fs', fs, 'nfft', nfft, 'difforder', 1, 'c', c, 'saveFiles', 2);
     for i = 1:numDataSets
         saveIdx = idx * numDataSets + i;
-        [~, ~] = CreateBtmTrainingData(epochSize, controlparameters, saveIdx);
-        [~, ~] = CreateBtmTrainingDataWeighted(epochSize, controlparameters, weight, saveIdx);
+        [~, ~] = dataFunc(saveIdx);
     end
 end

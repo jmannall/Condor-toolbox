@@ -12,7 +12,7 @@ JobBatchName = "JM_NNDataGen"
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-job.sh
-arguments     = $(process)
+arguments     = $(process) 96000 false
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
@@ -48,4 +48,4 @@ request_memory = 20G
 
 # -----------------------------------
 # Queue commands
-queue 100
+queue 50
