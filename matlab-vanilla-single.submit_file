@@ -12,7 +12,7 @@ JobBatchName = "JM_NNDataGen_Single"
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-job.sh
-arguments     = 39
+arguments     = 20000 96000 false
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
