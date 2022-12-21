@@ -11,8 +11,8 @@ JobBatchName = "JM_NNDataGen_Single"
 
 # --------------------------------------------
 # Executable and its arguments
-executable    = matlab-job.sh
-arguments     = 20000 96000 false
+executable    = matlab-job-single.sh
+arguments     = 
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
@@ -27,7 +27,7 @@ error  = NNDataGenLogs/error.p$(process)
 # -----------------------------------
 # File Transfer, Input, Output
 should_transfer_files = YES
-transfer_input_files = CondorScript.m
+transfer_input_files = CondorScriptSingle.m
 transfer_output_files = results
 when_to_transfer_output = ON_EXIT_OR_EVICT
 
