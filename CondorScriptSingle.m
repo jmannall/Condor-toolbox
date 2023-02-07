@@ -8,10 +8,11 @@ function CondorScriptSingle(fs, weighted)
     mkdir(['results', filesep, 'SingleWedge'])
     mkdir(['results', filesep, 'DefaultBTM'])
 
-    poolobj = gcp
-    if isempty(poolobj)
-        parpool([1 48]);
-    end
+    %poolobj = gcp
+    %if isempty(poolobj)
+    %    parpool([1 48]);
+    %end
+    parpool([1 48]);
 
     epochSize = 20e3;
     
