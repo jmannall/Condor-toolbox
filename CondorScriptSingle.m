@@ -26,7 +26,7 @@ function CondorScriptSingle(fs, weighted)
     rng(seed)
         
     if nargin > 1
-        controlparameters = struct('fs', fs, 'nfft', nfft, 'difforder', 1, 'c', c, 'saveFiles', 2);
+        controlparameters = struct('fs', fs, 'nfft', nfft, 'difforder', 1, 'c', c, 'saveFiles', 2, 'noDirect', true);
         if weighted
             weight = 20;
             dataFunc = @(saveIdx)CreateBtmTrainingDataWeighted(epochSize, controlparameters, weight, saveIdx);
