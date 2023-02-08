@@ -1,5 +1,7 @@
-function CondorScriptSingle(fs, weighted)
+function CondorScriptSingle()
 
+    fs = 96e3;
+    weighted = false;
     idx = 20e3;
     disp('Hello World')
 
