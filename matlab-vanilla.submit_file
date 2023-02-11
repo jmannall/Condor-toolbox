@@ -35,9 +35,9 @@ environment = "mount=$ENV(PWD)"
         
 # --------------------------------------
 # Resources
-request_GPUs     = 1
+request_GPUs     = 0
 +GPUMem          = 2000
-request_CPUs     = 1
+request_CPUs     = 0
 request_memory = 48G
 
 #This job will complete in less than 1 hour
@@ -48,4 +48,4 @@ request_memory = 48G
 
 # -----------------------------------
 # Queue commands
-queue 2
+queue 1
