@@ -1,5 +1,7 @@
 GenerateAudio(audioFile, sceneIdx)
 
+disp(audioFile)
+
 height = 1.6;
 % checkPoints = [1.5 7 height
 %     5 7 height

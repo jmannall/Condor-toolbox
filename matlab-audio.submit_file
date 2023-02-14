@@ -12,7 +12,7 @@ JobBatchName = "JM_AudioGen"
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-audio-job.sh
-arguments     = music $(process)
+arguments     = music.wav $(process)
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
