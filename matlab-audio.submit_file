@@ -1,0 +1,50 @@
+####################
+#
+# Example Job for HTCondor
+#
+####################
+
+
+#---------------------------------------------
+# Name your batch so it's easy to distinguish in the q.
+JobBatchName = "JM_AudioGen"
+
+# --------------------------------------------
+# Executable and its arguments
+executable    = matlab-audio-job.sh
+arguments     = music $(process)
+
+# ---------------------------------------------------
+# Universe (vanilla, docker)
+universe         = vanilla
+
+# -------------------------------------------------
+# Event, out and error logs
+log    = AudioGenLogs/log.p$(process)
+output = AudioGenLogs/out.p$(process)
+error  = AudioGenLogs/error.p$(process)
+
+# -----------------------------------
+# File Transfer, Input, Output
+should_transfer_files = YES
+transfer_input_files = GenerateAudio.m, BRIR, HRTF, sourceAudio
+transfer_output_files = results, audio
+when_to_transfer_output = ON_EXIT_OR_EVICT
+
+environment = "mount=$ENV(PWD)"
+        
+# --------------------------------------
+# Resources
+request_GPUs     = 0
+request_CPUs     = 0
+request_memory = 32G
+
+#This job will complete in less than 1 hour
++JobRunTime = 1
+
+#This job can checkpoint
++CanCheckpoint = true
+
+# -----------------------------------
+# Queue commands
+queue 6
