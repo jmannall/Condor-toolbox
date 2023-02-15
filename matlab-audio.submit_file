@@ -12,7 +12,7 @@ JobBatchName = "JM_AudioGen"
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-audio-job.sh
-arguments     = $(process)
+# arguments     = -music $(process)
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
@@ -27,7 +27,7 @@ error  = AudioGenLogs/error.p$(process)
 # -----------------------------------
 # File Transfer, Input, Output
 should_transfer_files = YES
-transfer_input_files = BRIR, HRTF, NNSaves, sourceAudio
+transfer_input_files = BRIR, sourceAudio
 transfer_output_files = results, audio
 when_to_transfer_output = ON_EXIT_OR_EVICT
 
@@ -47,4 +47,9 @@ request_memory = 32G
 
 # -----------------------------------
 # Queue commands
-queue 6
+queue 6 arguments from (
+    -music $(step)
+    -bongos $(step)
+    -whiteNoise $(step)
+    -musicDoubleBass $(step)
+)
