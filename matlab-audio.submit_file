@@ -48,8 +48,8 @@ request_memory = 32G
 # -----------------------------------
 # Queue commands
 queue 6 arguments from (
-    "music" $(step)
-    "bongos" $(step)
-    "whiteNoise" $(step)
-    "musicDoubleBass" $(step)
+    -music $(step)
+    -bongos $(step)
+    -whiteNoise $(step)
+    -musicDoubleBass $(step)
 )
