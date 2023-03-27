@@ -1,2 +1,9 @@
 #!/bin/bash
-exec /vol/hpc-software/software/matlab/R2022a/bin/matlab -nodisplay -nosplash -r "z = dlarray(2 + 3i); r = real(z); im = imag(z); disp(['Complex: ' num2str(z)]); disp(['Real: ' num2str(r)]); disp(['Imaginary: ' num2str(im)]); quit"
+sh ./git-clone.sh
+sh ./launch-matlab.sh
+z = dlarray(2 + 3i); \
+r = real(z); \
+im = imag(z); \
+disp(['Complex: ' num2str(z)]); \
+disp(['Real: ' num2str(r)]); \
+disp(['Imaginary: ' num2str(im)]);"
