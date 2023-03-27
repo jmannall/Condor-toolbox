@@ -1,9 +1,11 @@
 #!/bin/bash
 sh ./git-clone.sh
 sh ./launch-matlab.sh
-z = dlarray(2 + 3i); \
+"z = dlarray(2 + 3i); \
 r = real(z); \
 im = imag(z); \
 disp(['Complex: ' num2str(z)]); \
 disp(['Real: ' num2str(r)]); \
-disp(['Imaginary: ' num2str(im)]);"
+disp(['Imaginary: ' num2str(im)]); \
+quit;"
+sh ./rm-folders.sh
