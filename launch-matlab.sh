@@ -1,11 +1,6 @@
 #!/bin/bash
-test="Hello World"
-echo $test
-
-counter=$((0))
-echo $counter
-number="$@"
-echo $number
+hello="Hello World"
+echo $hello
 
 if [ $# -eq "0" ]
 then
