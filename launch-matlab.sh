@@ -1,4 +1,5 @@
 #!/bin/bash
+@echo OFF
 set message = $1'('
 echo "test"
 echo %message%
