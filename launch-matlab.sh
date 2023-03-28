@@ -5,10 +5,10 @@ echo $test
 message="$1("
 echo $message
 
-let ARGS_COUNT=0
+ARGS_COUNT=0
 
 for x in $*
-do let ARGS_COUNT=$ARGS_COUNT+1  
+do ARGS_COUNT=$((ARGS_COUNT+1))  
 echo $ARGS_COUNT
 
 for $x in $ARGS_COUNT
