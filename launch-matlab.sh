@@ -2,33 +2,26 @@
 test="Hello World"
 echo $test
 
-message="$1("
-echo $message
-
 counter=$((0))
 echo $counter
 number="$@"
 echo $number
-test=$number[1:$#]
-echo $test
 
 ARGS=1
 if [ $# -eq "$ARGS" ]
 then
-echo no arguments
+echo No arguments
+message="$1"
 else
-echo loop through arguments
+echo Loop through arguments
+message="$1($2"
+for value in {2..$#}
+do
+message="$message, $value"
+done
+message="$message)"
 fi
 
-for value in {1..2}
-do
-message="$message, $number[$value]"
-echo $value
-counter=$((counter+1))
-echo $counter
-done
-
-message="$message)"
 echo $message
 
 echo Launch MATLAB
