@@ -14,7 +14,7 @@ then
 message="$message, $var"
 echo "$var"
 fi
-counter=$counter+1
+counter=$((counter+1))
 echo $counter
 done
 
