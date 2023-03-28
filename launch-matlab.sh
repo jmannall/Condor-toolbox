@@ -1,4 +1,7 @@
 #!/bin/bash
+set message=Hello World 
+echo %message%
+
 set message = $1'('
 echo %message
 
