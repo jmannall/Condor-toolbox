@@ -9,8 +9,10 @@ counter=$((0))
 echo $counter
 for var in "$@"
 do
-if [$counter -gt 0]
+if [$counter == 0]
 then
+echo Skip first
+else
 message="$message, $var"
 echo "$var"
 fi
