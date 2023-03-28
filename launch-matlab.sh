@@ -5,14 +5,11 @@ echo $test
 message="$1("
 echo $message
 
-ARGS_COUNT=0
-
-for x in $*
-do ARGS_COUNT=$((ARGS_COUNT+1))  
-echo $ARGS_COUNT
-
-for $x in $ARGS_COUNT
-do message="message$x,"
+for var in "$@"
+do
+message="$message, $var"
+echo "$var"
+done
 
 message="$message)"
 echo $message
