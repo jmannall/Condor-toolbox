@@ -5,7 +5,8 @@ echo $test
 message="$1("
 echo $message
 
-counter=0
+counter=$((0))
+echo $counter
 for var in "$@"
 do
 if [$counter -gt 0]
@@ -14,6 +15,7 @@ message="$message, $var"
 echo "$var"
 fi
 ((counter++))
+echo $counter
 done
 
 message="$message)"
