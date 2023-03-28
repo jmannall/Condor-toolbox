@@ -5,13 +5,6 @@ echo $test
 message="$1("
 echo $message
 
-counter=1
-until [ $counter -gt 10 ]
-do
-echo $counter
-((counter++))
-done
-
 counter=$((0))
 echo $counter
 for var in "$@"
@@ -21,7 +14,7 @@ then
 message="$message, $var"
 echo "$var"
 fi
-counter=$((1))
+counter=$counter+1
 echo $counter
 done
 
