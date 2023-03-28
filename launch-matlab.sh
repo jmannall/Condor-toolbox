@@ -9,11 +9,13 @@ counter=$((0))
 echo $counter
 number="$@"
 echo $number
+test=$number[1:$#]
+echo $test
 
-for value in {1..$#-1}
+for value in {1..2}
 do
 message="$message, $number[$value]"
-echo "$var"
+echo $value
 counter=$((counter+1))
 echo $counter
 done
