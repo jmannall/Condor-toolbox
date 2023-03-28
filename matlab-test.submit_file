@@ -4,6 +4,7 @@
 #
 ####################
 
+
 #---------------------------------------------
 # Name your batch so it's easy to distinguish in the q.
 JobBatchName = "test_job"
@@ -36,7 +37,7 @@ environment = "mount=$ENV(PWD)"
 request_GPUs     = 0
 +GPUMem          = 2000
 request_CPUs     = 0
-request_memory = 8G
+request_memory = 4G
 
 #This job will complete in less than 1 hour
 +JobRunTime = 1

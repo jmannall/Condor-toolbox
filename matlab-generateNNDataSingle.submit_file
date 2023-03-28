@@ -7,12 +7,12 @@
 
 #---------------------------------------------
 # Name your batch so it's easy to distinguish in the q.
-JobBatchName = "JM_NNDataGen_Single"
+JobBatchName = "generateNNDataSingle"
 
 # --------------------------------------------
 # Executable and its arguments
-executable    = matlab-job-single.sh
-arguments     = 
+executable    = matlab-generateNNDataSingle-job.sh
+arguments     = 20000 96000
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
@@ -20,14 +20,14 @@ universe         = vanilla
 
 # -------------------------------------------------
 # Event, out and error logs
-log    = NNDataGenLogs/log.p$(process)
-output = NNDataGenLogs/out.p$(process)
-error  = NNDataGenLogs/error.p$(process)
+log    = generateNNDataSingle/log.p$(process)
+output = generateNNDataSingle/out.p$(process)
+error  = generateNNDataSingle/error.p$(process)
 
 # -----------------------------------
 # File Transfer, Input, Output
 should_transfer_files = YES
-transfer_input_files = CondorScriptSingle.m
+transfer_input_files = git-clone.sh, launch-matlab.sh, rm-folders.sh
 transfer_output_files = results
 when_to_transfer_output = ON_EXIT_OR_EVICT
 
@@ -35,10 +35,10 @@ environment = "mount=$ENV(PWD)"
         
 # --------------------------------------
 # Resources
-request_GPUs     = 1
-+GPUMem          = 4000
-request_CPUs     = 2
-request_memory = 12G
+request_GPUs     = 0
++GPUMem          = 2000
+request_CPUs     = 0
+request_memory = 48G
 
 #This job will complete in less than 1 hour
 +JobRunTime = 1
