@@ -5,10 +5,15 @@ echo $test
 message="$1("
 echo $message
 
+counter=0
 for var in "$@"
 do
+if [counter -gt 0]
+then
 message="$message, $var"
 echo "$var"
+fi
+((counter++))
 done
 
 message="$message)"
