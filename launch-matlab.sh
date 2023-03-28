@@ -5,12 +5,14 @@ echo $test
 message="$1("
 echo $message
 
-set /A ARGS_COUNT = 0
+let ARGS_COUNT=0
 
-for $x in ($*) do set /A ARGS_COUNT += 1    
+for x in $*
+do let ARGS_COUNT=$ARGS_COUNT+1  
 echo $ARGS_COUNT
 
-for $x in (2, 1, ARGS_COUNT) do message = "message $x,"
+for $x in $ARGS_COUNT
+do message="message$x,"
 
 message="$message)"
 echo $message
