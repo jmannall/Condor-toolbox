@@ -12,6 +12,14 @@ echo $number
 test=$number[1:$#]
 echo $test
 
+ARGS=1
+if [ $# -eq "$ARGS" ]
+then
+echo no arguments
+else
+echo loop through arguments
+fi
+
 for value in {1..2}
 do
 message="$message, $number[$value]"
