@@ -8,7 +8,7 @@ echo $message
 counter=0
 for var in "$@"
 do
-if [counter -gt 0]
+if [$counter -gt 0]
 then
 message="$message, $var"
 echo "$var"
@@ -19,6 +19,7 @@ done
 message="$message)"
 echo $message
 
+echo Launch MATLAB
 exec /vol/hpc-software/software/matlab/R2022a/bin/matlab -batch \
 "addpath(genpath('/mnt/fast/nobackup/users/jm01527/misc-files')); \
 addpath(genpath('Diffraction-toolbox')); \
