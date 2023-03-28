@@ -9,9 +9,8 @@ counter=$((0))
 echo $counter
 number="$@"
 echo $number
-unset $number[0]
-echo $number
-for var in "${$number[@]}"
+
+for var in "${$number[@]:1}"
 do
 message="$message, $var"
 echo "$var"
