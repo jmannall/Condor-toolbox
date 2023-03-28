@@ -7,15 +7,11 @@ echo $message
 
 counter=$((0))
 echo $counter
-for var in "$@"
+number="$@"
+for var in "number[@]:1"
 do
-if [$counter == 0]
-then
-echo Skip first
-else
 message="$message, $var"
 echo "$var"
-fi
 counter=$((counter+1))
 echo $counter
 done
