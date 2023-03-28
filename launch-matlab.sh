@@ -1,8 +1,6 @@
 #!/bin/bash
-echo on
 set message = $1'('
-echo "test"
-echo %message%
+echo %message
 
 set /A ARGS_COUNT = 0
 
