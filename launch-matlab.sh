@@ -8,7 +8,8 @@ echo $message
 counter=$((0))
 echo $counter
 number="$@"
-for var in "number[@]:1"
+echo $number
+for var in "${number[@]:1}"
 do
 message="$message, $var"
 echo "$var"
