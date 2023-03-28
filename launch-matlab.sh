@@ -1,8 +1,8 @@
 #!/bin/bash
-message="Hello World"
-echo $message
+test="Hello World"
+echo $test
 
-set message = "$1("
+message="$1("
 echo $message
 
 set /A ARGS_COUNT = 0
@@ -12,7 +12,7 @@ echo $ARGS_COUNT
 
 for $x in (2, 1, ARGS_COUNT) do message = "message $x,"
 
-message = "$message)"
+message="$message)"
 echo $message
 
 exec /vol/hpc-software/software/matlab/R2022a/bin/matlab -batch \
