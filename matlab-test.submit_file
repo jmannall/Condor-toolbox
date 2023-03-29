@@ -10,11 +10,12 @@
 JobBatchName = "test_job"
 
 #---------------------------------------------
+# Variables
 NUM_I = 2
 NUM_J = 3
 
 N = $(NUM_I) * $(NUM_J)
-I = ($(process) / $(NUM_I))
+I = ($(process) / $(NUM_J))
 J = ($(process) % $(NUM_J))
 
 # --------------------------------------------
