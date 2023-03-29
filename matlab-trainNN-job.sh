@@ -13,7 +13,7 @@ sh ./git-clone.sh
 #learnRate=$((1))
 #echo Learn rate set to default
 #fi
-$learnRate=$((100))
-echo $learnRate
-sh ./launch-matlab.sh TrainNeuralNetwork $1 $2 $learnRate "'$4'"
+#$learnRate=$((100))
+#echo $learnRate
+sh ./launch-matlab.sh TrainNeuralNetwork $1 $2 $3 "'$4'"
 sh ./rm-folders.sh

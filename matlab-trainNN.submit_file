@@ -19,7 +19,7 @@ NUM_K = 2
 N = $(NUM_I) * $(NUM_J) * $(NUM_K)
 I = ($(Process) / ($(NUM_K)  * $(NUM_J)) + 2)
 J = ((($(Process) /  $(NUM_K)) % $(NUM_J)  + 1) * 2000)
-K = ($(Process) %  $(NUM_K))
+K = (($(Process) %  $(NUM_K) + 1) * 100)
 
 # --------------------------------------------
 # Executable and its arguments
