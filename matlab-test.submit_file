@@ -14,13 +14,13 @@ NUM_I = 2
 NUM_J = 2
 
 N = $(NUM_I) * $(NUM_J)
-I = ($(process) / $(MAX_J) + 1)
-J = ($(process) % $(MAX_J) + 1)
+I = ($(process) / $(NUM_I))
+J = ($(process) % $(NUM_J))
 
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-test-job.sh
-arguments = $INT(I) $INT(J)
+arguments = $(I) $(J)
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
