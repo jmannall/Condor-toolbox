@@ -20,7 +20,7 @@ J = ($(process) % $(MAX_J))
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-test-job.sh
-arguments = $(I) $(J)
+arguments = $INT(I) $INT(J)
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
