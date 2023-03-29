@@ -32,9 +32,9 @@ universe         = vanilla
 
 # -------------------------------------------------
 # Event, out and error logs
-log    = generateNNData/log.p$(process)
-output = generateNNData/out.p$(process)
-error  = generateNNData/error.p$(process)
+log    = trainNN/log.p$(process)
+output = trainNN/out.p$(process)
+error  = trainNN/error.p$(process)
 
 # -----------------------------------
 # File Transfer, Input, Output
