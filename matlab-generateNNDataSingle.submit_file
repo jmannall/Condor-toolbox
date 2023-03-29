@@ -20,9 +20,9 @@ universe         = vanilla
 
 # -------------------------------------------------
 # Event, out and error logs
-log    = generateNNDataSingle/log.p$(process)
-output = generateNNDataSingle/out.p$(process)
-error  = generateNNDataSingle/error.p$(process)
+log    = generateNNDataSingle/log.c$(cluster)
+output = generateNNDataSingle/out.c$(cluster)
+error  = generateNNDataSingle/error.c$(cluster)
 
 # -----------------------------------
 # File Transfer, Input, Output
