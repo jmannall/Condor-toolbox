@@ -12,8 +12,8 @@ JobBatchName = "trainNN"
 #---------------------------------------------
 # Variable
 saveDir = NNSaves
-NUM_I = 2
-NUM_J = 2
+NUM_I = 6
+NUM_J = 5
 NUM_K = 2
 
 N = $(NUM_I) * $(NUM_J) * $(NUM_K)
@@ -50,7 +50,7 @@ environment = "mount=$ENV(PWD)"
 request_GPUs     = 0
 +GPUMem          = 2000
 request_CPUs     = 0
-request_memory = 48G
+request_memory = 16G
 
 #This job will complete in less than 1 hour
 +JobRunTime = 1
