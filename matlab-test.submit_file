@@ -14,8 +14,8 @@ NUM_I = 2
 NUM_J = 2
 
 N = $(NUM_I) * $(NUM_J)
-I = ($(process) / $(MAX_J))
-J = ($(process) % $(MAX_J))
+I = ($(process) / $(MAX_J) + 1)
+J = ($(process) % $(MAX_J) + 1)
 
 # --------------------------------------------
 # Executable and its arguments
