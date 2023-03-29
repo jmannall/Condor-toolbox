@@ -11,7 +11,7 @@ JobBatchName = "test_job"
 
 #---------------------------------------------
 NUM_I = 2
-NUM_J = 2
+NUM_J = 3
 
 N = $(NUM_I) * $(NUM_J)
 I = ($(process) / $(NUM_I))
@@ -20,7 +20,7 @@ J = ($(process) % $(NUM_J))
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-test-job.sh
-arguments = $(I) $(J)
+arguments = $INT(I) $INT(J)
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
