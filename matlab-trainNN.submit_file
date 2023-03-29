@@ -19,12 +19,12 @@ NUM_K = 2
 N = $(NUM_I) * $(NUM_J) * $(NUM_K)
 I = ($(Process) / ($(NUM_K)  * $(NUM_J)) + 2)
 J = ((($(Process) /  $(NUM_K)) % $(NUM_J)  + 1) * 2000)
-K = (10 ^ ($(Process) %  $(NUM_K)))
+K = ((10 ^ ($(Process) %  $(NUM_K))) * 1000)
 
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-trainNN-job.sh
-arguments     = $INT(I) $INT(J) $INT(K) $('saveDir')
+arguments     = $INT(I) $INT(J) $INT(K) '$(saveDir)'
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
