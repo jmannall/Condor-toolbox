@@ -24,7 +24,7 @@ K = ((10 ^ ($(Process) %  $(NUM_K))))
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-trainNN-job.sh
-arguments     = $INT(I) $INT(J) $INT(K) "'$(saveDir)'"
+arguments     = $INT(I) $INT(J) $INT(K) '"$(saveDir)"'
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
