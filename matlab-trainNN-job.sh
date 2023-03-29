@@ -3,6 +3,7 @@ if [ $3 -eq "0" ]
 then
 learnRate=$((1000))
 elif [ $3 -eq "1" ]
+then
 learnRate=$((10000))
 else
 learnRate=$((1000))
