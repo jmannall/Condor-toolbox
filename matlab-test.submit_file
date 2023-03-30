@@ -9,19 +9,9 @@
 # Name your batch so it's easy to distinguish in the q.
 JobBatchName = "test_job"
 
-#---------------------------------------------
-# Variables
-NUM_I = 2
-NUM_J = 3
-
-N = $(NUM_I) * $(NUM_J)
-I = ($(process) / $(NUM_J))
-J = ($(process) % $(NUM_J))
-
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-test-job.sh
-arguments = $INT(I) $INT(J)
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
@@ -57,4 +47,4 @@ request_memory = 4G
 
 # -----------------------------------
 # Queue commands
-queue $(N)
+queue 1
