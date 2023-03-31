@@ -7,7 +7,7 @@
 
 #---------------------------------------------
 # Name your batch so it's easy to distinguish in the q.
-JobBatchName = "trainNN"
+JobBatchName = "trainNN-Run2"
 
 #---------------------------------------------
 # Variables
