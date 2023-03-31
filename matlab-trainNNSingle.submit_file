@@ -16,7 +16,7 @@ saveDir = NNSaveSingle
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-trainNN-job.sh
-arguments     = 2 2000 1000 $(saveDir)
+arguments     = 3 2000 1000 $(saveDir)
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
@@ -24,9 +24,9 @@ universe         = vanilla
 
 # -------------------------------------------------
 # Event, out and error logs
-log    = trainNN/log.p$(process)
-output = trainNN/out.p$(process)
-error  = trainNN/error.p$(process)
+log    = trainNNSingle/log.p$(process)
+output = trainNNSingle/out.p$(process)
+error  = trainNNSingle/error.p$(process)
 
 # -----------------------------------
 # File Transfer, Input, Output
