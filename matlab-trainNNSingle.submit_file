@@ -7,27 +7,16 @@
 
 #---------------------------------------------
 # Name your batch so it's easy to distinguish in the q.
-JobBatchName = "trainNN"
+JobBatchName = "trainNNSingle"
 
 #---------------------------------------------
 # Variables
-saveDir = NNSaves
-# Number of layers
-NUM_I = 5
-# Size
-NUM_J = 4
-# Learn rate
-NUM_K = 2
-
-N = $(NUM_I) * $(NUM_J) * $(NUM_K)
-I = ($(Process) / ($(NUM_K)  * $(NUM_J)) + 2)
-J = ((($(Process) /  $(NUM_K)) % $(NUM_J)  + 1) * 2000)
-K = ($(Process) %  $(NUM_K))
+saveDir = NNSaveSingle
 
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-trainNN-job.sh
-arguments     = $INT(I) $INT(J) $INT(K) $(saveDir)
+arguments     = 2 2000 1000 $(saveDir)
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
@@ -50,7 +39,7 @@ environment = "mount=$ENV(PWD)"
         
 # --------------------------------------
 # Resources
-request_GPUs     = 0
+request_GPUs     = 1
 +GPUMem          = 2000
 request_CPUs     = 0
 request_memory = 16G
