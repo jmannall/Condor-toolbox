@@ -12,9 +12,9 @@ JobBatchName = "trainNN"
 #---------------------------------------------
 # Variable
 saveDir = NNSaves
-NUM_I = 6
-NUM_J = 5
-NUM_K = 2
+NUM_I = 5   # Number of layers
+NUM_J = 4   # Size
+NUM_K = 2   # Learn rate
 
 N = $(NUM_I) * $(NUM_J) * $(NUM_K)
 I = ($(Process) / ($(NUM_K)  * $(NUM_J)) + 2)
