@@ -1,0 +1,66 @@
+####################
+#
+# Example Job for HTCondor
+#
+####################
+
+
+#---------------------------------------------
+# Name your batch so it's easy to distinguish in the q.
+JobBatchName = "trainNN"
+
+#---------------------------------------------
+# Variables
+saveDir = NNSaves_Run1
+# Number of layers (5)
+NUM_I = 2
+# Size (4)
+NUM_J = 2
+# Learn rate (2)
+NUM_K = 2
+
+N = $(NUM_I) * $(NUM_J) * $(NUM_K)
+I = ($(Process) / ($(NUM_K)  * $(NUM_J)) + 2)
+J = ((($(Process) /  $(NUM_K)) % $(NUM_J)  + 1) * 2000)
+K = ($(Process) %  $(NUM_K))
+
+# --------------------------------------------
+# Executable and its arguments
+executable    = matlab-trainNN-job.sh
+arguments     = $INT(I) $INT(J) $INT(K) $(saveDir)
+
+# ---------------------------------------------------
+# Universe (vanilla, docker)
+universe         = vanilla
+
+# -------------------------------------------------
+# Event, out and error logs
+log    = trainNN/log.p$(process)
+output = trainNN/out.p$(process)
+error  = trainNN/error.p$(process)
+
+# -----------------------------------
+# File Transfer, Input, Output
+should_transfer_files = YES
+transfer_input_files = results, git-clone.sh, launch-matlab.sh, rm-folders.sh
+transfer_output_files = $(saveDir)
+when_to_transfer_output = ON_EXIT_OR_EVICT
+
+environment = "mount=$ENV(PWD)"
+        
+# --------------------------------------
+# Resources
+request_GPUs     = 0
++GPUMem          = 2000
+request_CPUs     = 0
+request_memory = 16G
+
+#This job will complete in less than 1 hour
++JobRunTime = 12
+
+#This job can checkpoint
++CanCheckpoint = true
+
+# -----------------------------------
+# Queue commands
+queue $(N)
