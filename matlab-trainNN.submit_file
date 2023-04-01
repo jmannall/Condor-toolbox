@@ -17,7 +17,7 @@ NUM_I = 2
 # Size (4)
 NUM_J = 2
 # Learn rate (2)
-NUM_K = 2
+NUM_K = 3
 
 N = $(NUM_I) * $(NUM_J) * $(NUM_K)
 I = ($(Process) / ($(NUM_K)  * $(NUM_J)) + 2)
