@@ -26,7 +26,7 @@ K = ($(Process) %  $(NUM_K))
 
 # --------------------------------------------
 # Executable and its arguments
-executable    = matlab-trainNNTemp-job.sh
+executable    = matlab-trainNN-job.sh
 arguments     = $INT(I) $INT(J) $INT(K) $(saveDir)
 
 # ---------------------------------------------------
@@ -35,9 +35,9 @@ universe         = vanilla
 
 # -------------------------------------------------
 # Event, out and error logs
-log    = trainNNTemp/log.p$(process)_1
-output = trainNNTemp/out.p$(process)_1
-error  = trainNNTemp/error.p$(process)_1
+log    = trainNN/log.p$(process)_1
+output = trainNN/out.p$(process)_1
+error  = trainNN/error.p$(process)_1
 
 # -----------------------------------
 # File Transfer, Input, Output
