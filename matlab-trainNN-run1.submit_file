@@ -42,8 +42,8 @@ error  = trainNN/error.p$(process)_1
 # -----------------------------------
 # File Transfer, Input, Output
 should_transfer_files = YES
-transfer_input_files = results, git-clone.sh, launch-matlab.sh, rm-folders.sh
-transfer_output_files = $(saveDir)
+transfer_input_files = results, git-clone.sh, launch-matlab.sh, rm-folders.sh, tempNN
+transfer_output_files = $(saveDir), tempNN
 when_to_transfer_output = ON_EXIT_OR_EVICT
 
 environment = "mount=$ENV(PWD)"
