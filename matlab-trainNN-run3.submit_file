@@ -11,7 +11,7 @@ JobBatchName = "trainNN-Run3"
 
 #---------------------------------------------
 # Variables
-saveDir = NNSaves_Run3
+saveDir = Run3
 # Number of layers (5)
 NUM_I = 5
 # Size (4)
@@ -35,9 +35,9 @@ universe         = vanilla
 
 # -------------------------------------------------
 # Event, out and error logs
-log    = trainNN/log.p$(process)
-output = trainNN/out.p$(process)
-error  = trainNN/error.p$(process)
+log    = trainNN/log.p$(process)_3
+output = trainNN/out.p$(process)_3
+error  = trainNN/error.p$(process)_3
 
 # -----------------------------------
 # File Transfer, Input, Output
