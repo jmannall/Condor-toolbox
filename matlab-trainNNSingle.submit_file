@@ -40,7 +40,7 @@ environment = "mount=$ENV(PWD)"
 # --------------------------------------
 # Resources
 request_GPUs     = 1
-+GPUMem          = 2000
++GPUMem          = 1600
 request_CPUs     = 0
 request_memory = 16G
 

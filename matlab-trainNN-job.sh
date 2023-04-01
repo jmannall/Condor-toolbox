@@ -5,6 +5,9 @@ learnRate=$((1000))
 elif [ $3 -eq "1" ]
 then
 learnRate=$((10000))
+elif [ $3 -eq "2" ]
+then
+learnRate=$((100000))
 else
 learnRate=$((1000))
 echo Learn rate set to default

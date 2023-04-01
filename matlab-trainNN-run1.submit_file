@@ -13,9 +13,9 @@ JobBatchName = "trainNN-Run1"
 # Variables
 saveDir = NNSaves_Run1
 # Number of layers (5)
-NUM_I = 2
+NUM_I = 5
 # Size (4)
-NUM_J = 2
+NUM_J = 4
 # Learn rate (2)
 NUM_K = 2
 
@@ -55,8 +55,8 @@ request_GPUs     = 0
 request_CPUs     = 0
 request_memory = 16G
 
-#This job will complete in less than 1 hour
-+JobRunTime = 12
+#This job will complete in less than 16 hours
++JobRunTime = 16
 
 #This job can checkpoint
 +CanCheckpoint = true
