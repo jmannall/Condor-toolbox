@@ -9,7 +9,7 @@
 # Name your batch so it's easy to distinguish in the q.
 JobBatchName = "generateNNData"
 
-idx = ($(process) + 79)
+idx = ($(process) + 78)
 
 # --------------------------------------------
 # Executable and its arguments
@@ -50,4 +50,4 @@ request_memory = 16G
 
 # -----------------------------------
 # Queue commands
-queue 18
+queue 20
