@@ -48,4 +48,4 @@ request_memory = 16G
 
 # -----------------------------------
 # Queue commands
-queue 2
+queue 1
