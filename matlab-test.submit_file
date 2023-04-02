@@ -11,7 +11,7 @@ JobBatchName = "test_job"
 
 # --------------------------------------------
 # Executable and its arguments
-executable    = matlab-fixTempNN.sh
+executable    = matlab-fixTempNN-job.sh
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
