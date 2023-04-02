@@ -12,7 +12,7 @@ JobBatchName = "generateNNDataSingle"
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-generateNNDataSingle-job.sh
-arguments     = 20000 96000
+arguments     = $(process) 96000
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
@@ -48,4 +48,4 @@ request_memory = 16G
 
 # -----------------------------------
 # Queue commands
-queue 1
+queue 2
