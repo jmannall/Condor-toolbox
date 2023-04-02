@@ -11,7 +11,7 @@ JobBatchName = "test_job"
 
 # --------------------------------------------
 # Executable and its arguments
-executable    = matlab-test-job.sh
+executable    = matlab-fixTempNN-job.sh
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
@@ -26,8 +26,8 @@ error  = test-job/error.p$(process)
 # -----------------------------------
 # File Transfer, Input, Output
 should_transfer_files = YES
-transfer_input_files = git-clone.sh, launch-matlab.sh, rm-folders.sh
-# transfer_output_files =
+transfer_input_files = tempNN, git-clone.sh, launch-matlab.sh, rm-folders.sh
+# transfer_output_files = tempNN
 when_to_transfer_output = ON_EXIT_OR_EVICT
 
 environment = "mount=$ENV(PWD)"
