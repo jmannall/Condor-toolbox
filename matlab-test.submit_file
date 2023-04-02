@@ -27,7 +27,7 @@ error  = test-job/error.p$(process)
 # File Transfer, Input, Output
 should_transfer_files = YES
 transfer_input_files = tempNN, git-clone.sh, launch-matlab.sh, rm-folders.sh
-# transfer_output_files = tempNN
+# transfer_output_files = tempNNNew
 when_to_transfer_output = ON_EXIT_OR_EVICT
 
 environment = "mount=$ENV(PWD)"
