@@ -9,10 +9,12 @@
 # Name your batch so it's easy to distinguish in the q.
 JobBatchName = "generateNNData"
 
+idx = ($(process) + 79)
+
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-generateNNData-job.sh
-arguments     = $(process) 96000
+arguments     = $(idx) 96000
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
@@ -48,4 +50,4 @@ request_memory = 16G
 
 # -----------------------------------
 # Queue commands
-queue 100
+queue 18
