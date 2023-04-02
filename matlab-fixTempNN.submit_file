@@ -1,0 +1,50 @@
+####################
+#
+# Example Job for HTCondor
+#
+####################
+
+
+#---------------------------------------------
+# Name your batch so it's easy to distinguish in the q.
+JobBatchName = "fixTempNN"
+
+# --------------------------------------------
+# Executable and its arguments
+executable    = matlab-fixTempNN-job.sh
+
+# ---------------------------------------------------
+# Universe (vanilla, docker)
+universe         = vanilla
+
+# -------------------------------------------------
+# Event, out and error logs
+log    = fixTempNN/log.p$(process)
+output = fixTempNN/out.p$(process)
+error  = fixTempNN/error.p$(process)
+
+# -----------------------------------
+# File Transfer, Input, Output
+should_transfer_files = YES
+transfer_input_files = tempNN, git-clone.sh, launch-matlab.sh, rm-folders.sh
+# transfer_output_files = tempNN
+when_to_transfer_output = ON_EXIT_OR_EVICT
+
+environment = "mount=$ENV(PWD)"
+        
+# --------------------------------------
+# Resources
+request_GPUs     = 0
++GPUMem          = 2000
+request_CPUs     = 0
+request_memory = 4G
+
+#This job will complete in less than 1 hour
++JobRunTime = 1
+
+#This job can checkpoint
++CanCheckpoint = true
+
+# -----------------------------------
+# Queue commands
+queue 1
