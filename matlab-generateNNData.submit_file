@@ -14,7 +14,7 @@ idx = ($(process) + 79)
 # --------------------------------------------
 # Executable and its arguments
 executable    = matlab-generateNNData-job.sh
-arguments     = $(idx) 96000
+arguments     = $INT(idx) 96000
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
