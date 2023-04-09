@@ -7,11 +7,11 @@
 
 #---------------------------------------------
 # Name your batch so it's easy to distinguish in the q.
-JobBatchName = "trainNN-Run3"
+JobBatchName = "trainNN-Run6"
 
 #---------------------------------------------
 # Variables
-saveDir = Run3
+saveDir = Run6
 # Number of layers (5)
 NUM_I = 6
 # Size (4)
@@ -35,9 +35,9 @@ universe         = vanilla
 
 # -------------------------------------------------
 # Event, out and error logs
-log    = trainNN/log.p$(process)_3
-output = trainNN/out.p$(process)_3
-error  = trainNN/error.p$(process)_3
+log    = trainNN/log.p$(process)_6
+output = trainNN/out.p$(process)_6
+error  = trainNN/error.p$(process)_6
 
 # -----------------------------------
 # File Transfer, Input, Output
