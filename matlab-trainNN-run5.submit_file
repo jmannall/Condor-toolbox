@@ -42,7 +42,7 @@ error  = trainNN/error.p$(process)_5
 # -----------------------------------
 # File Transfer, Input, Output
 should_transfer_files = YES
-transfer_input_files = results, git-clone.sh, launch-matlab.sh, rm-folders.sh, tempNN
+transfer_input_files = results, git-clone.sh, launch-matlab.sh, rm-folders.sh, tempNN, DataHash.m
 transfer_output_files = NNSaves, tempNN
 when_to_transfer_output = ON_EXIT_OR_EVICT
 
