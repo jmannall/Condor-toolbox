@@ -32,5 +32,5 @@ echo $message
 echo Launch MATLAB
 exec /vol/hpc-software/software/matlab/R2022a/bin/matlab -batch \
 "addpath(genpath('Diffraction-toolbox')); \
-addpath(genpath('Edge-diffraction-Matlab-toolbox')); 
+addpath(genpath('Edge-diffraction-Matlab-toolbox')); \
 $message;"
