@@ -1,0 +1,51 @@
+####################
+#
+# Example Job for HTCondor
+#
+####################
+
+
+#---------------------------------------------
+# Name your batch so it's easy to distinguish in the q.
+JobBatchName = "fieldAroundWedge"
+
+# --------------------------------------------
+# Executable and its arguments
+executable    = matlab-fieldAroundWedge-job.sh
+arguments     = $(process)
+
+# ---------------------------------------------------
+# Universe (vanilla, docker)
+universe         = vanilla
+
+# -------------------------------------------------
+# Event, out and error logs
+log    = fieldAroundWedge/log.p$(process)
+output = fieldAroundWedge/out.p$(process)
+error  = fieldAroundWedge/error.p$(process)
+
+# -----------------------------------
+# File Transfer, Input, Output
+should_transfer_files = YES
+transfer_input_files = results, git-clone.sh, launch-matlab.sh, rm-folders.sh, misc-files
+transfer_output_files = results
+when_to_transfer_output = ON_EXIT_OR_EVICT
+
+environment = "mount=$ENV(PWD)"
+        
+# --------------------------------------
+# Resources
+request_GPUs     = 0
++GPUMem          = 2000
+request_CPUs     = 0
+request_memory = 20G
+
+#This job will complete in less than 1 hour
++JobRunTime = 1
+
+#This job can checkpoint
++CanCheckpoint = true
+
+# -----------------------------------
+# Queue commands
+queue 8
